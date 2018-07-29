@@ -3,11 +3,13 @@ pragma solidity ^0.4.21;
 
 contract manager2FA {
     
-
+    address constant admin = 0xd9e5e4bde24faa2b277ab2be78c95b9ae24259a8;
     modifier onlyOwner {
-    require(msg.sender == owner);
+
+    require(msg.sender == admin);
     _;
     }
+    
     //time in unix timestamp
     uint256 constant timeLimit = 500;
     mapping(address => uint) public keysToAddress;    

@@ -1,6 +1,6 @@
 var Web3 = require("web3");
-var contractAddress = "";
-var abi = require("../build/contract/manager2FA.json");
+var contractAddress = "0xad82f6506d9762e7089e4fbbbb680c3aa5b4fc58";
+var abi = require("./manager2FA.json");
 var address = "0xd9e5e4bde24faa2b277ab2be78c95b9ae24259a8";
 require("./routes/router");
 
@@ -16,8 +16,8 @@ module.exports = {
         )
       );
 
-      const contractInstance = () => web3.eth.contract(abi).at(contractAddress);
-
+      const contractInstance = web3.eth.contract(abi).at(contractAddress);
+      console.log(contractInstance);
       //create the contract instance by setting the address and abi
       contractInstance
         .set2FA(userAddress, userCode, { from: address })
