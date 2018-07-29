@@ -1,9 +1,8 @@
 //===Package  Requirements===
 const express = require("express");
 const http = require("http");
-
 const cors = require("cors");
-
+require("dotenv").config();
 // const cookieSession = require('cookie-session');
 
 const path = require("path");

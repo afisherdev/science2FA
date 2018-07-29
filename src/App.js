@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import Manager2fa from "../build/contracts/manager2FA.json";
 import getWeb3 from "./utils/getWeb3";
-
+import axios from "axios";
 import "./css/oswald.css";
 import "./css/open-sans.css";
 import "./css/pure-min.css";
@@ -69,7 +69,12 @@ so that in the setData() below, its tracked and passed properly
 *
 *
 */
-
+  handleClick() {
+    console.log("heres the info:", this.state.address, this.state.code);
+    axios.get('/2fa',  this.state.address, this.state.code){
+      res.
+    }
+  }
   setData() {
     console.log(this.state.manager2FA);
     var maxNumber = 45;
@@ -106,7 +111,7 @@ so that in the setData() below, its tracked and passed properly
             <div className="pure-u-1-1">
               <h1>Click below to get your two factor authentication code.</h1>
               <p />
-              <button />
+              <button onClick={handleClick} />
 
               <p>Your 2fa code is : {this.state.twofactorcode}</p>
             </div>
