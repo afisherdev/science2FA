@@ -71,7 +71,7 @@ so that in the setData() below, its tracked and passed properly
 */
   handleClick() {
     console.log("heres the info:", this.state.address, this.state.code);
-    axios.get('/2fa',  this.state.address, this.state.code){
+    axios.post('/2fa', { address: this.state.address, code: this.state.code}){
       res.
     }
   }
