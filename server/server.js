@@ -14,7 +14,7 @@ const twofactor = require("./ethereum.js");
 //========App Setup======
 const app = express();
 app.use(cors());
-twofactor.ethereum();
+
 app.use(bodyParser.json({ type: "*/*" }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "client/build")));

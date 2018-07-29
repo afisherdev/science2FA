@@ -71,9 +71,12 @@ so that in the setData() below, its tracked and passed properly
 */
   handleClick() {
     console.log("heres the info:", this.state.address, this.state.code);
-    axios.post('/2fa', { address: this.state.address, code: this.state.code}){
-      res.
-    }
+    axios.post("http://localhost:5000/2fa", {
+      data: {
+        address: this.state.address,
+        code: this.state.code
+      }
+    });
   }
   setData() {
     console.log(this.state.manager2FA);
@@ -111,7 +114,7 @@ so that in the setData() below, its tracked and passed properly
             <div className="pure-u-1-1">
               <h1>Click below to get your two factor authentication code.</h1>
               <p />
-              <button onClick={handleClick} />
+              <button onClick={this.handleClick.bind(this)} />
 
               <p>Your 2fa code is : {this.state.twofactorcode}</p>
             </div>
