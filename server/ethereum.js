@@ -1,6 +1,7 @@
 var Web3 = require("web3");
 var contractAddress = "";
 var abi = require("abi.json");
+var address = "0xd9e5e4bde24faa2b277ab2be78c95b9ae24259a8";
 
 module.exports = {
   ethereum: function() {
@@ -14,8 +15,15 @@ module.exports = {
         )
       );
     }
+    const contractInstance = () => web3.eth.contract(abi).at(contractAddress);
 
     //create the contract instance by setting the address and abi
+    contractInstance
+      .set2FA(userAddress, userCode, { from: address })
+      .then((error, res) => {
+        console.log(error);
+        console.log(res);
+      });
 
     //then interact with contract via the node
 
